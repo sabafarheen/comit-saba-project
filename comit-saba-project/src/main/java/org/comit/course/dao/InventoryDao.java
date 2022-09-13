@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class InventoryDao {
 
-	List<Inventort> inventory;
+	List<Inventory> inventory;
 
 	@Autowired
 	JdbcTemplate jdbcTemplate;
@@ -28,7 +28,7 @@ public class InventoryDao {
 
 		String sql = "SELECT * FROM INVENTORY WHERE IN_ID = ?";
 
-		return jdbcTemplate.queryForObject(sql, new InventryMapper(), idInventory);
+		return jdbcTemplate.queryForObject(sql, new InventoryMapper(), in_Id);
 	}
 
 	public Inventory findByUsername(String username) {
@@ -40,13 +40,13 @@ public class InventoryDao {
 		return inventory.isEmpty()?null:inventory.get(0);
 	}
 
-	public void createUser(User user) {
+	public void createInventory(Inventory inventory) {
 
         String sql = "INSERT INVENTORY(USERNAME,PASSWORD,IN_NAME,CATEGORY,QUANTITY,STATUS) " +
-                     "VALUES(?,?,?,?,?,?,?)";
+                     "VALUES(?,?,?,?,?,?)";
 
-        jdbcTemplate.update(sql,new Object[] {inventory.getUsername(), user.getPassword(), user.getIn_Name(),
-        		                              user.geCategory(), user.getQuantity(), user.getStatus()});
+        jdbcTemplate.update(sql,new Object[] {inventory.getUsername(), inventory.getPassword(), inventory.getIn_Name(),
+        		                              inventory.getCategory(), inventory.getQuantity(), inventory.getStatus()});
 	}
 
     public void modifyUser(Inventory inventory) {
@@ -55,14 +55,14 @@ public class InventoryDao {
                      "WHERE IN_ID= ?";
 
         jdbcTemplate.update(sql,new Object[] {inventory.getUsername(), inventory.getIn_Name(),
-        		inventory.getCategory(), inventory.Quantity(),inventory.Status(), inventory.getIn_Idr()});
+        		inventory.getCategory(), inventory.Quantity(),inventory.Status(), inventory.getIn_Id()});
     }
 
     public void deleteInventory(int In_Id) {
 
 		String sql = "DELETE FROM INVENTORY WHERE IN_ID = ?";
 
-        jdbcTemplate.update(sql,new Object[] {In_Id});
+        jdbcTemplate.update(sql,new Object[] {idInventory});
     }
 
 

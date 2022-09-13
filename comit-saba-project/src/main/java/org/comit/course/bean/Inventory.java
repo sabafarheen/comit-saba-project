@@ -31,7 +31,7 @@ public class Inventory {
 		return idInventory;
 	}
 	public void setIdInventory(int idInventory) {
-		this.idIventory = idInventory;
+		this.idInventory = idInventory;
 	}
 	public String getIn_Name) {
 		return in_Name;
@@ -39,7 +39,7 @@ public class Inventory {
 	public void setIn_Name(String in_Name) {
 		this.in_Name = in_Name;
 	}
-	public String getCategory
+	public String getCategory{
 		return category;
 	}
 	public void setCategory(String category) {

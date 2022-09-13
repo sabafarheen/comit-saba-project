@@ -6,7 +6,6 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.comit.course.bean.Inventory;
 import org.comit.course.service.InventoryService;
-import org.comit.course.util.Util;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
